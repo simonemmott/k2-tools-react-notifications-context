@@ -1,7 +1,24 @@
 {
-  "name": "library-app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "react-notifications-context",
+  "version": "0.0.2",
+  "private": false,
+  "author": "Simon Emmott <simon.emmott@yahoo.co.uk>",
+  "keywords": [
+    "react",
+    "notifications",
+    "context",
+    "alerts"
+  ],
+  "babel": {
+    "presets": [
+      "@babel/preset-react"
+    ]
+  },
+  "main": "dist/Notifications.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simonemmott/k2-tools-react-notifications-context.git"
+  },
   "dependencies": {
     "@k2_tools/utils": "^0.0.9",
     "@testing-library/jest-dom": "^5.16.5",
@@ -14,7 +31,7 @@
   "scripts": {
     "start": "react-scripts start",
     "stop": "`lsof -i :3000 | grep node | grep LISTEN | awk '{print \"kill -9 \"$2}'`",
-    "build": "react-scripts build",
+    "build": "rm -rf dist && mkdir dist &&  babel src/component -d dist --copy-files",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -35,5 +52,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.18.10",
+    "@babel/preset-react": "^7.18.6"
   }
 }

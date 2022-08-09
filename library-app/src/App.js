@@ -1,10 +1,10 @@
 import {useContext} from "react";
 import './App.css';
-import Notifications from "./lib/Notifications";
+import Notifications from "./component/Notifications";
 
 const Notice = () => {
   const notices = useContext(Notifications.Context);
-  notices.accept({type: "success", title: "Opps I did it again! - XXX", message: "Hit me baby one more time!", timeout: 5000});
+  notices.accept({type: "success", title: "Opps I did it again!", message: "Hit me baby one more time!", timeout: 5000});
   
   return <p>Notified!</p>;
 };
