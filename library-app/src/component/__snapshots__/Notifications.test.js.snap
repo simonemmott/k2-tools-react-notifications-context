@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notifications Renders notices in the notifications panel 1`] = `
+Array [
+  <span />,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Renders notices in the notifications panel 2`] = `
+Array [
+  <div
+    className="alert success"
+  >
+    <h4>
+      TITLE
+    </h4>
+    <p>
+      MESSAGE
+    </p>
+    <p>
+      false - 100%
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Close
+    </button>
+  </div>,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;

@@ -3,7 +3,7 @@ import {strings, queues} from "@k2_tools/utils";
 
 
 const SelfClosingAlert = ({notice, onClose, timeout, queued}) => {
-  timeout = notice.timeout ? notice.timeout : timeout ? timeout : 3000;
+  timeout = notice.timeout !== undefined ? notice.timeout : timeout ? timeout : 3000;
   let className = "alert";
   const type = notice.type.toLowerCase();
   if (type === "primary") {
@@ -37,7 +37,7 @@ const QueuedCountDownTimer = ({timeout, queued, onComplete}) => {
   const [complete, setComplete] = useState(1);
   
   useEffect(() => {
-    if (timeout) {
+    if (timeout > 0) {
       let countdown = timeout;
       const interval = setInterval(() => {
         countdown = countdown - 100 < 0 ? 0 : countdown - 100;
@@ -150,7 +150,7 @@ const NotificationsPanel = (props) => {
     } else {
       console.log("Received default notify function. \n"+
       `No notifications will be received in this notifications panel [${props.id}]\n`+
-      "make sure that the Notifications.Panel is a child of a Notifications.Context");
+      "make sure that the Notifications.Panel is a child of a Notifications component");
     }
   }
   
