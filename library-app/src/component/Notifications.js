@@ -23,25 +23,7 @@ const SelfClosingAlert = ({notice, onClose, timeout, queued}) => {
   timeout = notice.timeout !== undefined ? notice.timeout : timeout ? timeout : 3000;
   
   //Set the class name of the alert for styling from the type of the notice accepted
-  let className = "alert";
-  const type = notice.type.toLowerCase();
-  if (type === "primary") {
-    className = className + " primary";
-  } else if (type === "secondary") {
-    className = className + " secondary";
-  } else if (type === "success") {
-    className = className + " success";
-  } else if (type === "danger") {
-    className = className + " danger";
-  } else if (type === "warning") {
-    className = className + " warning";
-  } else if (type === "info") {
-    className = className + " info";
-  } else if (type === "dark") {
-    className = className + " dark";
-  } else if (type === "light") {
-    className = className + " light";
-  }
+  const className = "alert " + (notice.type ? notice.type.toLowerCase() : "primary");
 
   // Render the alert as a simple div
   // - It is intended that this be overridden in a production system
@@ -98,6 +80,27 @@ const QueuedCountDownTimer = ({timeout, queued, onComplete}) => {
 }
 
 /**
+   * The function called to digest every notice before it is rendered
+   * @param {{type : string, title : string, message : string, timeout : int}} notice - The notice to digest
+   * @param {function} formatTitle - The function to call to format the title in the digested notice
+   * @param {string} defaultMessage - The default message to show in the case that the notice does not include the message attribute
+   * @return {{type : string, title : string, message : string, timeout : int}} The digested message
+   */
+const defaultNoticeDigest = (notice, formatTitle, defaultMessage) => {
+    const tc = formatTitle ? formatTitle : defaults.titleCase;
+    if (!notice.type) {
+      notice.type = 'primary';
+    }
+    if (notice.title) {
+      notice.title = tc(notice.title);
+    }
+    if (!notice.message) {
+      notice.message = defaultMessage ? defaultMessage : defaults.message;
+    }
+    return notice;
+  }
+
+/**
  * The Notifications defaults
  */
 const defaults = {
@@ -115,19 +118,7 @@ const defaults = {
    * @param {string} defaultMessage - The default message to show in the case that the notice does not include the message attribute
    * @return {{type : string, title : string, message : string, timeout : int}} The digested message
    */
-  digest: (notice, formatTitle, defaultMessage) => {
-    const tc = formatTitle ? formatTitle : defaults.titleCase;
-    if (!notice.type) {
-      notice.type = 'primary';
-    }
-    if (notice.title) {
-      notice.title = tc(notice.title);
-    }
-    if (!notice.message) {
-      notice.message = defaultMessage ? defaultMessage : defaults.defaultMessage;
-    }
-    return notice;
-  },
+  digest: defaultNoticeDigest,
   /**
    * The react component to render as the alert
    * @type {JSX}
@@ -137,8 +128,18 @@ const defaults = {
    * The default message text to use when the notice does not supply the message attribute
    * @type {string}
    */
-  defaultMessage: "No message!"
+  message: "No message!"
 };
+
+/**
+ * A function to restore the defaults to their original values
+ */
+export const resetDefaults = () => {
+  defaults.titleCase = strings.titleCase;
+  defaults.digest = defaultNoticeDigest;
+  defaults.alert = SelfClosingAlert;
+  defaults.message = "No message!";
+}
 
 /**
  * A function to set the default format title function
@@ -183,7 +184,7 @@ export const defaultAlert = (func) => {
  * @param {string} message - The default message text
  */
 export const defaultMessage = (message) => {
-  if (message instanceof String) {
+  if (typeof message === "string" || message instanceof String) {
     defaults.message = message;
   } else {
     console.log("The given default message was not a string. - Nothing done!")
@@ -227,7 +228,7 @@ const NotificationsPanel = (props) => {
     titleCase: props.titleCase && props.titleCase instanceof Function ? props.titleCase : defaults.titleCase,
     // The message digester to digest each message before it is rendered
     digest: props.digest && props.digest instanceof Function ? props.digest : (notice) => {
-      notice = defaults.digest(notice, lib.titleCase, lib.defaultMessage);
+      notice = defaults.digest(notice, lib.titleCase, lib.message);
       if (!notice.timeout && props.timeout) {
         notice.timeout = props.timeout;
       }
@@ -238,7 +239,7 @@ const NotificationsPanel = (props) => {
     // The alert JSX component with which to render the notice
     alert: props.alert  && props.alert instanceof Function ? props.alert : defaults.alert,
     // The default message to render if the notice does  not define the message attribute
-    defaultMessage: props.defaultMessage ? props.defaultMessage : defaults.defaultMessage
+    message: props.defaultMessage ? props.defaultMessage : defaults.message
   };
   
   // Get the notifications context for this panel
@@ -250,7 +251,7 @@ const NotificationsPanel = (props) => {
       // Get the next notice promise
       notices.next().then((notice) => {
         // Set the notice state to the promised notice having digested it with the title format function and default message
-        setNotice(lib.digest(notice, lib.titleCase, lib.defaultMessage));
+        setNotice(lib.digest(notice, lib.titleCase, lib.message));
       });
     } else {
       console.log("Received default notify function. \n"+

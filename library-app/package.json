@@ -32,6 +32,7 @@
     "stop": "`lsof -i :3000 | grep node | grep LISTEN | awk '{print \"kill -9 \"$2}'`",
     "build": "rm -rf dist && mkdir dist &&  babel src/component -d dist --copy-files",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
