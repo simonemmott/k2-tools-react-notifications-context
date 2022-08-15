@@ -1,6 +1,6 @@
 # React Notification Context
 
-<details><summary>Overview</summary>
+<details><summary>## Overview</summary>
 <p>
 The React notifications context is a fully configurable notifications context for React web applications.
 
