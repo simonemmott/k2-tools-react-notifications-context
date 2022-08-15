@@ -264,7 +264,7 @@ const NotificationsPanel = (props) => {
   // - onClose - the callback to close the notice
   // - timeout - The default timeout if the notice does not define the timeout attribute
   // - queues - The function to call to get the number of notices still on the queue
-  if (notice) return <lib.alert notice={notice} onClose={() => setNotice(undefined)} timeout={lib.timeout} queued={notices.queued}/>;
+  if (notice) return <lib.alert notice={notice} onClose={() => setNotice(undefined)} timeout={lib.timeout} queued={notices.size}/>;
   // If the is not notice to display render an empty span.
   else return <span />
 };
