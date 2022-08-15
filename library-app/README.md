@@ -52,4 +52,20 @@ const ComponentRaisedNotice = (props) => {
 
 };
 ```
- 
+
+The accepted notice is routed to the `Notifications.Panel` to be rendered by the configured alert component. The only code which exists within the business logic of the application
+is to get the notifications context 
+
+``` javascript
+const notices = useContext(Notifications.Context);
+``` 
+
+and to submit the notice
+
+``` javascript
+notices.accept({
+  type: "success", 
+  title: "Opps I did it again!", 
+  message: "Hit me baby one more time!", 
+  timeout: 5000});
+```
