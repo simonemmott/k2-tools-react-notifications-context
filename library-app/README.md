@@ -1,5 +1,7 @@
 # React Notification Context
 
+<details><summary>Overview</summary>
+<p>
 The React notifications context is a fully configurable notifications context for React web applications.
 
 This project aims to provide a flexible and reusable approach to providing alerts to web application users.
@@ -9,7 +11,7 @@ It does however, have the advantage of being invoked from a global broswer funct
 
 In a production web application we want the alerts to be formatted and appear at a sensible location within the page.
 
-Bootstrap provides an `Alert` componet for formatting and rendeing user alerts. However, in order to render the alert ther developer must implement some javascript plumbing to show and hide the alert as required.
+Bootstrap provides an `Alert` component for formatting and rendeing user alerts. However, in order to render the alert the developer must implement some javascript plumbing to show and hide the alert as required.
 In many cases this `plumbing` is effectively boiler plate and obfuscates the business logic implemented by the application.
 
 The React notifications context abstracts this `plumbing` into a reusable React component `Notifications`
@@ -69,3 +71,5 @@ notices.accept({
   message: "Hit me baby one more time!", 
   timeout: 5000});
 ```
+</p>
+</details>
