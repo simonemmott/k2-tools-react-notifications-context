@@ -1,11 +1,11 @@
 # React Notification Context
 
-<details><summary><h2>Overview</h2></summary>
-<p>
 The React notifications context is a fully configurable notifications context for React web applications.
 
 This project aims to provide a flexible and reusable approach to providing alerts to web application users.
 
+<details><summary><h2>Overview</h2></summary>
+<p>
 The default broswer behaviour for alerts presents an unformatted alert dialog. This is invariably ugly and does not fit into the look and feel of any web application.
 It does however, have the advantage of being invoked from a global broswer function `alert(...)`.
 
