@@ -136,7 +136,7 @@ If a notice is submitted outside of a `Notifications` component then the notice 
 </App>
 ```
 
-**Note** There is no requirement for the `Notifications` component to be an immediate child of the \<App\> nor for the `Notifications.Panel` to be an immediate child of its `Notifications`. The exmaple given ommits more detailed nesting for reasons of clarity
+**Note** There is no requirement for the `Notifications` component to be an immediate child of the `App` nor for the `Notifications.Panel` to be an immediate child of its `Notifications`. The exmaple given ommits more detailed nesting for reasons of clarity
 
 **Note** Notices raised inside of a `Notifications` component are queued until a `Notifications.Panel` exists and is ready to display the notice
 
@@ -155,7 +155,76 @@ The `Notifications.Panel` uses a `QueuedCountDownTimer` to automatically timeout
 Out of the box the React notifications context renders a very basic self-closing alert. 
 Production applicaitons will want to replace this basic alert format with a format consistent with the look and feel of the application.
 
+There are 2 ways to control the component used to render the notice.
 
+1. Setting a default alert
+1. Setting an alert for a specific `Notifications.Panel`
 
+### Setting A Default Alert
+
+The React notifications context privides a function `defaultAlert` to set the default alert component for all `Notifications.Panel`
+
+``` javascript
+// Import the default alert function
+import {defaultAlert} from 'react-notifications-context';
+
+// Define an alert component
+const MyAlert = ({notice, onClose, timeout, queued}) => {
+  setTimeout(onClose, timeout);
+  return <JSX>
+}
+
+// Register the alert component as the default
+defaultAlert(MyAlert);
+```
+
+**Note** The alert copmponent recieves the following props.
+
+1. `notice`
+
+The notice submitted to the `Notifications.Context` after it has been digested
+
+2. `onClose`
+
+A callback function to close the alert
+
+3. `timeout`
+
+The number of milliseconds that the alert should be shown before calling `onClose`
+
+4. `queued`
+
+A function to call to get the number of notices still on the queue
+
+### Setting An Alert For A Specific Panel
+
+In addition to or instead of setting a default alert individual `Notifications.Panel` can specify the alert component to render through its rendered props
+
+``` html
+<App>
+  <Notifications>
+    <Notifications.Panel alert={MyAlert} />
+    ...
+  </Notifications>
+</App>
+```
+
+**Note** Alert components set at the panel level override the default alert
 
 </details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
