@@ -73,3 +73,40 @@ notices.accept({
 ```
 </p>
 </details>
+
+<details><summary><h2>Getting Started</h2></summary>
+
+### Install
+
+```
+npm import react-notifications-context
+```
+
+### Import
+
+``` javascript
+import Notifications from 'react-notifications-context';
+```
+
+### Usage
+
+1. Include a `Notifications` component in the applications DOM to gather notices submitted by child components.
+2. Include a `Notifications.Panel` within the `Notifications` component where the notices should be presented to the user
+3. In a component which is to submit a notice get the notifications context 
+
+``` javascript
+const notices = useContext(Notifications.Context);
+```
+ 
+4. To submit a notice call the `accept` method of the notifications context with the notice to show to the user
+
+``` javascript
+notices.accept({
+  type: "success", 
+  title: "Opps I did it again!", 
+  message: "Hit me baby one more time!", 
+  timeout: 5000});
+```
+
+
+</details>
