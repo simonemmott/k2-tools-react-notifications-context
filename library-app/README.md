@@ -172,8 +172,8 @@ In addition to being able to customize the alert component and therefore the not
 
 Digesting the notice allows the notice to be systematically adjusted before it is rendered to the user. see [below](#digestingTheNotice).
 </details>
-<details><summary><h2><a name="digestingTheNotice"></a>Digesting The Notice</h2></summary>
-
+<details><summary><h2>Digesting The Notice</h2></summary>
+<a name="digestingTheNotice"></a>
 Digesting the Notice
 
 </details>
