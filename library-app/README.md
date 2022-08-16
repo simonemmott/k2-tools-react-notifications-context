@@ -150,10 +150,38 @@ Multiple notices can be submitted and all will be queued in the order they were 
 The `Notifications.Panel` uses a `QueuedCountDownTimer` to automatically timeout the notice after the submitted or configured timeout has elapsed. Once a notice is closed, either by the user or timed out automatically the next queued notice is rendered for the user.
 
 </details>
+<details><summary><h2>Notice Data Type</h2></summary>
+
+By default the notice data type is
+
+``` javascript
+const notice = {
+  type : string, // Default 'primary'
+  title : string, // If ommitted the notice will not have a title
+  message : string, // Defaults to the default message 
+  timeout : integer // Defaults to 3000ms
+};
+```
+
+However, there is no absolute requirement to use this data type. 
+Any java object can be submitted as a notice and that object will be passed to the appropriate `Notifications.Panel`. The configured alert component must handle received notice.
+
+Since the alert component is configurable any format of notice can be submitted and will be passed to the configured alert component as its `notice` property.
+
+In addition to being able to customize the alert component and therefore the notice format notices are also digested before being rendered.
+
+Digesting the notice allows the notice to be systematically adjusted before it is rendered to the user. see below.
+</details>
+<details><summary><h2>Digesting The Notice</h2></summary>
+</details>
+<details><summary><h2>Formatting The Notice Title</h2></summary>
+</details>
+<details><summary><h2>Setting The Default Message</h2></summary>
+</details>
 <details><summary><h2>Formatting The Alert</h2></summary>
 
 Out of the box the React notifications context renders a very basic self-closing alert. 
-Production applicaitons will want to replace this basic alert format with a format consistent with the look and feel of the application.
+Production applications will want to replace this basic alert format with a format consistent with the look and feel of the application.
 
 There are 2 ways to control the component used to render the notice.
 
