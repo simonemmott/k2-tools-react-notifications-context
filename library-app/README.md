@@ -170,10 +170,10 @@ Since the alert component is configurable any format of notice can be submitted 
 
 In addition to being able to customize the alert component and therefore the notice format notices are also digested before being rendered.
 
-Digesting the notice allows the notice to be systematically adjusted before it is rendered to the user. see [below](#digesting_the_notice).
+Digesting the notice allows the notice to be systematically adjusted before it is rendered to the user. see [below](#digestingTheNotice).
 </details>
-<details><summary><h2>Digesting The Notice</h2></summary>
-<a name="digesting_the_notice"></a>
+<details><summary><h2><a name="digestingTheNotice"></a>Digesting The Notice</h2></summary>
+
 Digesting the Notice
 
 </details>
