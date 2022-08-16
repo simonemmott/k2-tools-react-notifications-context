@@ -73,7 +73,6 @@ notices.accept({
 ```
 </p>
 </details>
-
 <details><summary><h2>Getting Started</h2></summary>
 
 ### Install
@@ -107,6 +106,5 @@ notices.accept({
   message: "Hit me baby one more time!", 
   timeout: 5000});
 ```
-
-
 </details>
+
