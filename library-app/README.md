@@ -136,14 +136,14 @@ If a notice is submitted outside of a `Notifications` component then the notice 
 </App>
 ```
 
-**Note** There is no requirement for the `Notifications` component to be an immediate child of the <App> nor for the `Notifications.Panel` to be an immediate child of its `Notifications`. The exmaple given ommits more detailed nesting for reasons of clarity
+**Note** There is no requirement for the `Notifications` component to be an immediate child of the \<App\> nor for the `Notifications.Panel` to be an immediate child of its `Notifications`. The exmaple given ommits more detailed nesting for reasons of clarity
 
 **Note** Notices raised inside of a `Notifications` component are queued until a `Notifications.Panel` exists and is ready to display the notice
 
 </details>
 <details><summary><h2>Handling Multiple Notices</h2></summary>
 
-The React notifications context uses a [@k2_tools/utils.queues.queue](https://github.com/simonemmott/k2-tools-utils/blob/HEAD/docs/QUEUES.md) to queue notices until the `Notifications.Panel` is ready to display them.
+The React notifications context uses a [@k2_tools/utils.queues.queue](https://www.npmjs.com/package/@k2_tools/utils) to queue notices until the `Notifications.Panel` is ready to display them.
 
 Multiple notices can be submitted and all will be queued in the order they were submitted and displayed to the user one at a time.
 
