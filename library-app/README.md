@@ -107,4 +107,55 @@ notices.accept({
   timeout: 5000});
 ```
 </details>
+<details><summary><h2>Using Multipe Contexts And Notice Panels</h2></summary>
 
+The React notifications context supports using multiple `Notifications` components in the application.
+`Notifications` componnents can be included anywhere in the applications DOM. They can be siblings or children of each other.
+The react `useContext` hook finds the closest parent `Notifications` component to the component submitting the notice and routes the notice to the `Notifications.Panel` embedded in that `Notifications` component.
+
+There must be one and only one `Notifications.Panel` in any rendered `Notifications` component. If there is more than one it is indeterminate which panel will recieve notices. If there is no `Notifications.Panel` 
+The notices will not be rendered but will be cached waiting for a `Notifications.Panel` to be included.
+
+If a notice is submitted outside of a `Notifications` component then the notice is raised using a browser alert.
+
+``` html
+<App>
+  <!-- Notices submitted here will raise browser alerts -->
+  <Notifications>
+    <!-- Notices submitted here will raise alerts in panel 1 -->
+    <Noticifations.Panel /> <!-- Panel 1 -->
+    <!-- Notices submitted here will raise alerts in panel 1 -->
+    <Notifications>
+      <!-- Notices submitted here will raise alerts in panel 2 -->
+      <Noticifations.Panel /> <!-- Panel 2 -->
+      <!-- Notices submitted here will raise alerts in panel 2 -->
+    </Notifications>
+    <!-- Notices submitted here will raise alerts in panel 1 -->
+  </Notifications>
+  <!-- Notices submitted here will raise browser alerts -->
+</App>
+```
+
+**Note** There is no requirement for the `Notifications` component to be an immediate child of the <App> nor for the `Notifications.Panel` to be an immediate child of its `Notifications`. The exmaple given ommits more detailed nesting for reasons of clarity
+
+**Note** Notices raised inside of a `Notifications` component are queued until a `Notifications.Panel` exists and is ready to display the notice
+
+</details>
+<details><summary><h2>Handling Multiple Notices</h2></summary>
+
+The React notifications context uses a [@k2_tools/utils.queues.queue](https://github.com/simonemmott/k2-tools-utils/blob/HEAD/docs/QUEUES.md) to queue notices until the `Notifications.Panel` is ready to display them.
+
+Multiple notices can be submitted and all will be queued in the order they were submitted and displayed to the user one at a time.
+
+The `Notifications.Panel` uses a `QueuedCountDownTimer` to automatically timeout the notice after the submitted or configured timeout has elapsed. Once a notice is closed, either by the user or timed out automatically the next queued notice is rendered for the user.
+
+</details>
+<details><summary><h2>Formatting The Alert</h2></summary>
+
+Out of the box the React notifications context renders a very basic self-closing alert. 
+Production applicaitons will want to replace this basic alert format with a format consistent with the look and feel of the application.
+
+
+
+
+</details>

@@ -44,7 +44,7 @@ const SelfClosingAlert = ({notice, onClose, timeout, queued}) => {
  * @param {function} onComplete - The callback to call when the countdown is complete
  * @return {JSX} The rendered countdown timeer
  */
-const QueuedCountDownTimer = ({timeout, queued, onComplete}) => {
+export const QueuedCountDownTimer = ({timeout, queued, onComplete}) => {
   const [queuedItems, setQueuedItems] = useState(queued());
   const [complete, setComplete] = useState(1);
   
