@@ -118,7 +118,7 @@ The notices will not be rendered but will be cached waiting for a `Notifications
 
 If a notice is submitted outside of a `Notifications` component then the notice is raised using a browser alert.
 
-``` jsx
+``` html
 <App>
   <!-- Notices submitted here will raise browser alerts -->
   <Notifications>
