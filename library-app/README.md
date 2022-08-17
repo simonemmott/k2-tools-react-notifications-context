@@ -380,7 +380,7 @@ import {defaultAlert} from 'react-notifications-context';
 const MyAlert = ({notice, onClose, timeout, queued}) => {
   setTimeout(onClose, timeout);
   return <JSX>
-}
+};
 
 // Register the alert component as the default
 defaultAlert(MyAlert);
@@ -421,7 +421,16 @@ In addition to or instead of setting a default alert individual `Notifications.P
 
 </details>
 
+<details><summary><h2>Resetting Defaults</h2></summary>
 
+The React notifications context provides a function `resetDefaults` to reset the defaults to thier original state.
+This function is particularly useful for testing.
+
+``` jax
+import {resetDefaults} from 'react-notifications-context';
+```
+
+<details>
 
 
 
