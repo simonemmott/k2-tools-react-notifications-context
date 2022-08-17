@@ -428,6 +428,8 @@ This function is particularly useful for testing.
 
 ``` jax
 import {resetDefaults} from 'react-notifications-context';
+
+resetDefaults();
 ```
 
 <details>
