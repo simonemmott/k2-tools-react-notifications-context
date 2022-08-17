@@ -18,7 +18,7 @@ The React notifications context abstracts this `plumbing` into a reusable React 
 
 `Notifications` provides a react context `Notification.Context` in which notifications accepted by the context are dispatched to the `Notifications.Panel` to be rendered.
 
-``` jsx
+``` html
 <App> <!-- The react application component -->
   ...
   <Notifications> <!-- The Notifications context is embedded somewhere in the React App -->
