@@ -426,13 +426,13 @@ In addition to or instead of setting a default alert individual `Notifications.P
 The React notifications context provides a function `resetDefaults` to reset the defaults to thier original state.
 This function is particularly useful for testing.
 
-``` jax
+``` jsx
 import {resetDefaults} from 'react-notifications-context';
 
 resetDefaults();
 ```
 
-<details>
+</details>
 
 
 
