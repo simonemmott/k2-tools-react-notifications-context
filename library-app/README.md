@@ -266,7 +266,7 @@ export default App;
 
 By default React notifications context formats the title of each notice into title case, where the first letter of each word is capitalised.
 
-This behaviour can be changes by changing the default notice digest function, see above.
+This behaviour can be changed by changing the default notice digest function, see above.
 
 It is also possible to just change the default title format function without relacing the whole default notice digest.
 
@@ -313,12 +313,49 @@ const App = () => {
 export default App;
 ```
 
-
-
 </details>
 <details><summary><h2>Setting The Default Message</h2></summary>
 
-Setting The Default Message
+By default the React notifications context uses "No message!" as the default message. This message is rendered when the notice does not define a `message` attribute.
+
+There are 2 ways to control the default message
+
+1. The default message can be changed globally
+2. The default message can bet set for a spesific panel by settings its `defaultMessage` property.
+
+### Changing The Default Message
+
+The React notifications context provides a function `defaultMessage` to set the default message.
+The `defaultMessage` function will accept any string as the new default message.
+
+``` jsx
+import {defaultMessage} from 'react-notifications-context';
+import {strings} from '@k2_tools/utils';
+
+defaultMessage("Nothing to alert!"); // Set the default message
+```
+
+### Changing The Default Message For A Specific Notifications.Panel
+
+The React notifications context allow the default message to be set for a specific `Notifications.Panel` by providing a string to its `defaultMessage` property.
+
+``` jsx
+import React from 'react';
+import Notifications from 'react-notifications-context';
+
+const App = () => {
+  return (
+    <div className="App">
+      <Notifications>
+        <Notifications.Panel defaultMessage={"Nothing to alert!"}/> <!-- Set the default message for this Panel -->
+        ...
+      </Notifications>
+    </div>
+  );
+}
+
+export default App;
+```
 
 </details>
 <details><summary><h2>Formatting The Alert</h2></summary>
