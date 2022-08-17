@@ -264,7 +264,56 @@ export default App;
 </details>
 <details><summary><h2>Formatting The Notice Title</h2></summary>
 
-Formatting The Title
+By default React notifications context formats the title of each notice into title case, where the first letter of each word is capitalised.
+
+This behaviour can be changes by changing the default notice digest function, see above.
+
+It is also possible to just change the default title format function without relacing the whole default notice digest.
+
+There are 2 ways to control the default title format function
+
+1. The default title format function can be changed globally
+2. The format title function can bet set for a spesific panel by settings its `titleCase` property.
+
+### Changing The Default Format Title Function
+
+The React notifications context provides a function `defaultTitleCase` to set the default format title function.
+The `defaultTitleCase` function will accept any object of type `Function` as the new format title function.
+
+``` jsx
+import {defaultTitleCase} from 'react-notifications-context';
+import {strings} from '@k2_tools/utils';
+
+defaultTitleCase(strings.kebabCase); // All titles will be formatted in kebab case. aaa-bbb-ccc
+```
+
+### Changing The Format Title Function For A Specific Notifications.Panel
+
+The React notifications context allow the format title function to be set for a specific `Notifications.Panel` by providing a format title function to its `titleCase` property.
+
+``` jsx
+import React from 'react';
+import Notifications from 'react-notifications-context';
+
+const upperCase = (title) => {
+  return title.toUpperCase();
+}; // Define a new format title function which returns the given title in upper case.
+
+const App = () => {
+  return (
+    <div className="App">
+      <Notifications>
+        <Notifications.Panel titleCase={upperCase}/> <!-- Set the format title function for this Panel -->
+        ...
+      </Notifications>
+    </div>
+  );
+}
+
+export default App;
+```
+
+
 
 </details>
 <details><summary><h2>Setting The Default Message</h2></summary>
