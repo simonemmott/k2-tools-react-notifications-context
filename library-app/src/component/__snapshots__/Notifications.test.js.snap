@@ -1,0 +1,552 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notifications Calling defaultAlert with a JSX component changes how notices are rendered 1`] = `
+Array [
+  <span />,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Calling defaultAlert with a JSX component changes how notices are rendered 2`] = `
+Array [
+  <div
+    className="alert success"
+  >
+    <h4>
+      This Is A Title
+    </h4>
+    <p>
+      THIS IS A CUSTOM ALERT
+    </p>
+    <p>
+      MESSAGE
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Close
+    </button>
+  </div>,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Calling defaultDigest with a function changes how notices are digested 1`] = `
+Array [
+  <span />,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Calling defaultDigest with a function changes how notices are digested 2`] = `
+Array [
+  <div
+    className="alert success"
+  >
+    <h4>
+      THIS IS A NEW TITLE
+    </h4>
+    <p>
+      This is a message
+    </p>
+    <p>
+      false - 100%
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Close
+    </button>
+  </div>,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Calling defaultMessage with a string sets the default message 1`] = `
+Array [
+  <span />,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Calling defaultMessage with a string sets the default message 2`] = `
+Array [
+  <div
+    className="alert success"
+  >
+    <h4>
+      This Is A Title
+    </h4>
+    <p>
+      CUSTOM DEFAULT MESSAGE
+    </p>
+    <p>
+      false - 100%
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Close
+    </button>
+  </div>,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Calling defaultTitleCase with a function changes how titles are formatted 1`] = `
+Array [
+  <span />,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Calling defaultTitleCase with a function changes how titles are formatted 2`] = `
+Array [
+  <div
+    className="alert success"
+  >
+    <h4>
+      this-is-a-title
+    </h4>
+    <p>
+      MESSAGE
+    </p>
+    <p>
+      false - 100%
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Close
+    </button>
+  </div>,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Clicking close button on the alert closes the alert 1`] = `
+Array [
+  <span />,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Clicking close button on the alert closes the alert 2`] = `
+Array [
+  <div
+    className="alert success"
+  >
+    <h4>
+      TITLE
+    </h4>
+    <p>
+      MESSAGE
+    </p>
+    <p>
+      false - 100%
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Close
+    </button>
+  </div>,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Clicking close button on the alert closes the alert 3`] = `
+Array [
+  <span />,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications If no message is given the default message is rendered 1`] = `
+Array [
+  <span />,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications If no message is given the default message is rendered 2`] = `
+Array [
+  <div
+    className="alert primary"
+  >
+    <p>
+      No message!
+    </p>
+    <p>
+      false - 100%
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Close
+    </button>
+  </div>,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications If the title is ommitted no title is rendered 1`] = `
+Array [
+  <span />,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications If the title is ommitted no title is rendered 2`] = `
+Array [
+  <div
+    className="alert primary"
+  >
+    <p>
+      MESSAGE
+    </p>
+    <p>
+      false - 100%
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Close
+    </button>
+  </div>,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Rendering the notifications panel with alert as a JSX component changes how notices are rendered 1`] = `
+Array [
+  <span />,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Rendering the notifications panel with alert as a JSX component changes how notices are rendered 2`] = `
+Array [
+  <div
+    className="alert success"
+  >
+    <h4>
+      This Is A Title
+    </h4>
+    <p>
+      THIS IS A CUSTOM ALERT
+    </p>
+    <p>
+      This is a message
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Close
+    </button>
+  </div>,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Rendering the notifications panel with defaultMessage as string changes the default message 1`] = `
+Array [
+  <span />,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Rendering the notifications panel with defaultMessage as string changes the default message 2`] = `
+Array [
+  <div
+    className="alert success"
+  >
+    <h4>
+      This Is A Title
+    </h4>
+    <p>
+      DEFAULT MESSAGE
+    </p>
+    <p>
+      false - 100%
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Close
+    </button>
+  </div>,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Rendering the notifications panel with digest as a function changes how notices are digested 1`] = `
+Array [
+  <span />,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Rendering the notifications panel with digest as a function changes how notices are digested 2`] = `
+Array [
+  <div
+    className="alert success"
+  >
+    <h4>
+      THIS IS A NEW TITLE
+    </h4>
+    <p>
+      This is a message
+    </p>
+    <p>
+      false - 100%
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Close
+    </button>
+  </div>,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Rendering the notifications panel with titleCase as a function changes how titles are formatted 1`] = `
+Array [
+  <span />,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Rendering the notifications panel with titleCase as a function changes how titles are formatted 2`] = `
+Array [
+  <div
+    className="alert success"
+  >
+    <h4>
+      ThisIsATitle
+    </h4>
+    <p>
+      This is a message
+    </p>
+    <p>
+      false - 100%
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Close
+    </button>
+  </div>,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Renders notices in the notifications panel 1`] = `
+Array [
+  <span />,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Renders notices in the notifications panel 2`] = `
+Array [
+  <div
+    className="alert success"
+  >
+    <h4>
+      TITLE
+    </h4>
+    <p>
+      MESSAGE
+    </p>
+    <p>
+      false - 100%
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Close
+    </button>
+  </div>,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Setting timeout times out the alert 1`] = `
+Array [
+  <span />,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications Setting timeout times out the alert 2`] = `
+Array [
+  <div
+    className="alert success"
+  >
+    <h4>
+      TITLE
+    </h4>
+    <p>
+      MESSAGE
+    </p>
+    <p>
+      false - 100%
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Close
+    </button>
+  </div>,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications The notice type defaults to primary 1`] = `
+Array [
+  <span />,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
+
+exports[`Notifications The notice type defaults to primary 2`] = `
+Array [
+  <div
+    className="alert primary"
+  >
+    <h4>
+      TITLE
+    </h4>
+    <p>
+      MESSAGE
+    </p>
+    <p>
+      false - 100%
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Close
+    </button>
+  </div>,
+  <button
+    onClick={[Function]}
+  >
+    Send
+  </button>,
+]
+`;
