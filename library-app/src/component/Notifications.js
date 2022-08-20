@@ -4,17 +4,15 @@
  * @module react-notifications-context
  */
 import React, {useState, createContext, useContext, useEffect} from 'react';
-import {strings} from "@k2_tools/utils";
-import queue from "../utils/queues/queues";
+import utils from "@k2_tools/utils";
 import "./Notifications.scss";
-import {viewBox, offset, describeArc, cartesian2svg} from "../utils/svg/svg";
-import {polar2cartesian} from "../utils/geometry/geometry";
+//import {viewBox, offset, describeArc, cartesian2svg} from "../utils/svg/svg";
+//import {polar2cartesian} from "../utils/geometry/geometry";
 
 /**
  * Define a basic self closing alert to show when a notice is accepted
  * @param {{type : string, title : string, message : string, timeout : int}} notice - The notice to show as an alert
  * @param {function} onClose - The function to call to close the notice
- * @param {int} timeout - The number of milliseconds that the alert should show for if not given in the notice defaults to 3000
  * @param {function} queued - The function to call to idnetify how many notices are still on the queue
  * @return {JSX} THe rendered alert
  */
@@ -63,17 +61,17 @@ const describeTimeoutArc = (complete, radius, thickness, viewBox, offset) => {
     flags.outer.largeArc = 1;
     flags.inner.largeArc = 1;
   }
-  const startSvg = cartesian2svg(0, outerRadius, viewBox, offset);
+  const startSvg = utils.svg.cartesian2svg(0, outerRadius, viewBox, offset);
   const end = {x: 0, y: innerRadius};
-  const endOuter = polar2cartesian(outerRadius, deg); 
-  const endInner = polar2cartesian(innerRadius, deg); 
-  const endInnerSvg = cartesian2svg(endInner.x, endInner.y, viewBox, offset);
+  const endOuter = utils.geometry.polar2cartesian(outerRadius, deg); 
+  const endInner = utils.geometry.polar2cartesian(innerRadius, deg); 
+  const endInnerSvg = utils.svg.cartesian2svg(endInner.x, endInner.y, viewBox, offset);
   
   const d = [
     "M", startSvg.x, startSvg.y,
-    describeArc(outerRadius, outerRadius, 0, flags.outer.largeArc, flags.outer.sweep, endOuter.x, endOuter.y, viewBox, offset),
+    utils.svg.describeArc(outerRadius, outerRadius, 0, flags.outer.largeArc, flags.outer.sweep, endOuter.x, endOuter.y, viewBox, offset),
     "L", endInnerSvg.x, endInnerSvg.y,
-    describeArc(innerRadius, innerRadius, 0, flags.inner.largeArc, flags.inner.sweep, end.x, end.y, viewBox, offset),
+    utils.svg.describeArc(innerRadius, innerRadius, 0, flags.inner.largeArc, flags.inner.sweep, end.x, end.y, viewBox, offset),
     "Z"
   ];
   return d.join(" ");
@@ -84,16 +82,15 @@ const describeTimeoutArc = (complete, radius, thickness, viewBox, offset) => {
  * for the timeout
  * @param {int} timeout - The number of miliseconds to countdown
  * @param {function} queued - The function to call to get the number of items still on the queue
- * @param {function} onComplete - The callback to call when the countdown is complete
  * @return {JSX} The rendered countdown timeer
  */
 export const QueuedCountDownTimer = ({timeout, queued}) => {
   const [queuedItems, setQueuedItems] = useState(queued());
   const [complete, setComplete] = useState(1);
-  const vb = viewBox(-50, -50, 100, 100);
-  const oSet = offset(vb, "center");
+  const vb = utils.svg.viewBox(-50, -50, 100, 100);
+  const oSet = utils.svg.offset(vb, "center");
   const d = describeTimeoutArc(complete, 40, 8, vb, oSet);
-  const origin = cartesian2svg(0, 0, vb, oSet);
+  const origin = utils.svg.cartesian2svg(0, 0, vb, oSet);
 
 
   
@@ -165,7 +162,7 @@ const defaults = {
    * @param {string} title - The title to format
    * @return {string} The formatted title
    */ 
-  titleCase: strings.titleCase,
+  titleCase: utils.strings.titleCase,
   /**
    * The function called to digest every notice before it is rendered
    * @param {{type : string, title : string, message : string, timeout : int}} notice - The notice to digest
@@ -190,7 +187,7 @@ const defaults = {
  * A function to restore the defaults to their original values
  */
 export const resetDefaults = () => {
-  defaults.titleCase = strings.titleCase;
+  defaults.titleCase = utils.strings.titleCase;
   defaults.digest = defaultNoticeDigest;
   defaults.alert = SelfClosingAlert;
   defaults.message = "No message!";
@@ -296,7 +293,7 @@ const NotificationsPanel = (props) => {
   const [lib] = useState(buildLib());
   const Alert = props.alert  && props.alert instanceof Function ? props.alert : defaults.alert;
   const closeNotice = () => {
-    notices.clearPromise();
+//    notices.clearPromise();
     if (promiseNotice.timeout) {
       clearTimeout(promiseNotice.timeout);
     }
@@ -311,7 +308,7 @@ const NotificationsPanel = (props) => {
         let timeout;
         if (notice.timeout > 0) {
           timeout = setTimeout(() => {
-            notices.clearPromise();
+//            notices.clearPromise();
             if (promiseNotice.timeout) {
               clearTimeout(promiseNotice.timeout);
             }
@@ -342,7 +339,7 @@ const NotificationsPanel = (props) => {
  */
 const Notifications = (props) => {
   // Render the supplied child JSX copmonents in a Notifications Context Provider
-  return <NotificationsContext.Provider value={queue()}>
+  return <NotificationsContext.Provider value={utils.queues.queue()}>
     {props.children}
   </NotificationsContext.Provider>
 };

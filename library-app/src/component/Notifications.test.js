@@ -1,8 +1,7 @@
 import React, {useContext} from 'react';
 import renderer from 'react-test-renderer';
 import Notifications, {defaultTitleCase, resetDefaults, defaultDigest, defaultAlert, defaultMessage} from "./Notifications.js";
-import {strings} from "@k2_tools/utils";
-import {sleep} from "../utils/threads/threads";
+import {strings, threads} from "@k2_tools/utils";
 
 const Notice = ({notice, send}) => {
   const notices = useContext(Notifications.Context);
@@ -55,7 +54,7 @@ it("3) Renders notices in the notifications panel", async () => {
     
     await renderer.act(async () => {
       tree[1].props.onClick();
-      await sleep(100);
+      await threads.sleep(100);
     });
 
 
@@ -76,7 +75,7 @@ it("3) Renders notices in the notifications panel", async () => {
     
     await renderer.act(async () => {
       tree[1].props.onClick();
-      await sleep(100);
+      await threads.sleep(100);
     });
 
     tree = component.toJSON();
@@ -96,7 +95,7 @@ it("3) Renders notices in the notifications panel", async () => {
      
     await renderer.act(async () => {
       tree[1].props.onClick();
-      await sleep(100);
+      await threads.sleep(100);
     });
 
     tree = component.toJSON();
@@ -116,7 +115,7 @@ it("3) Renders notices in the notifications panel", async () => {
     
     await renderer.act(async () => {
       tree[1].props.onClick();
-      await sleep(100);
+      await threads.sleep(100);
     });
 
     tree = component.toJSON();
@@ -138,7 +137,7 @@ it("3) Renders notices in the notifications panel", async () => {
     
     await renderer.act(async () => {
       tree[1].props.onClick();
-      await sleep(100);
+      await threads.sleep(100);
     });
 
     tree = component.toJSON();
@@ -163,7 +162,7 @@ it("3) Renders notices in the notifications panel", async () => {
     
     await renderer.act(async () => {
       tree[1].props.onClick();
-      await sleep(100);
+      await threads.sleep(100);
     });
 
     tree = component.toJSON();
@@ -195,7 +194,7 @@ it("3) Renders notices in the notifications panel", async () => {
     
     await renderer.act(async () => {
       tree[1].props.onClick();
-      await sleep(100);
+      await threads.sleep(100);
     });
 
     tree = component.toJSON();
@@ -217,7 +216,7 @@ it("3) Renders notices in the notifications panel", async () => {
     
     await renderer.act(async () => {
       tree[1].props.onClick();
-      await sleep(100);
+      await threads.sleep(100);
     });
 
     tree = component.toJSON();
@@ -237,7 +236,7 @@ it("3) Renders notices in the notifications panel", async () => {
     
     await renderer.act(async () => {
       tree[1].props.onClick();
-      await sleep(100);
+      await threads.sleep(100);
     });
 
     tree = component.toJSON();
@@ -262,7 +261,7 @@ it("3) Renders notices in the notifications panel", async () => {
     
     await renderer.act(async () => {
       tree[1].props.onClick();
-      await sleep(100);
+      await threads.sleep(100);
     });
 
     tree = component.toJSON();
@@ -292,7 +291,7 @@ it("3) Renders notices in the notifications panel", async () => {
     
     await renderer.act(async () => {
       tree[1].props.onClick();
-      await sleep(100);
+      await threads.sleep(100);
     });
 
     tree = component.toJSON();
@@ -312,7 +311,7 @@ it("3) Renders notices in the notifications panel", async () => {
     
     await renderer.act(async () => {
       tree[1].props.onClick();
-      await sleep(100);
+      await threads.sleep(100);
     });
 
     tree = component.toJSON();
@@ -332,7 +331,7 @@ it("3) Renders notices in the notifications panel", async () => {
     
     await renderer.act(async () => {
       tree[1].props.onClick();
-      await sleep(200);
+      await threads.sleep(200);
     });
 
     tree = component.toJSON();
@@ -352,7 +351,7 @@ it("3) Renders notices in the notifications panel", async () => {
     
     await renderer.act(async () => {
       tree[1].props.onClick();
-      await sleep(100);
+      await threads.sleep(100);
     });
 
     tree = component.toJSON();
@@ -360,7 +359,7 @@ it("3) Renders notices in the notifications panel", async () => {
     
     await renderer.act(async () => {
       tree[0].children[0].children[2].props.onClick();
-      await sleep(100);
+      await threads.sleep(100);
     });
 
     tree = component.toJSON();
