@@ -156,7 +156,7 @@ By default the notice data type is
 
 ``` jsx
 const notice = {
-  type : string, // Default 'primary'
+  type : string, // Default 'info'
   title : string, // If ommitted the notice will not have a title
   message : string, // Defaults to the default message 
   timeout : integer // Defaults to 3000ms

@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import renderer from 'react-test-renderer';
 import Notifications, {defaultTitleCase, resetDefaults, defaultDigest, defaultAlert, defaultMessage} from "./Notifications.js";
 import {strings} from "@k2_tools/utils";
+import {sleep} from "../utils/threads/threads";
 
 const Notice = ({notice, send}) => {
   const notices = useContext(Notifications.Context);
@@ -20,15 +21,28 @@ afterEach(() => {
 
 describe("Notifications", () => {
   
-  it("Has a Panel attribute", () => {
+  it("1) Has a Panel attribute", () => {
     expect(Notifications.Panel).toBeTruthy();
   });
   
-  it("Has a Context attribute", () => {
+  it("2) Has a Context attribute", () => {
     expect(Notifications.Context).toBeTruthy();
   });
   
-  it("Renders notices in the notifications panel", async () => {
+  it("2.1) Renders a empty notifications panel", async () => {
+    
+    const component = renderer.create(
+      <Notifications>
+        <Notifications.Panel />
+      </Notifications>
+    );
+    
+    let tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+    
+  });
+
+it("3) Renders notices in the notifications panel", async () => {
     
     const component = renderer.create(
       <Notifications>
@@ -36,19 +50,21 @@ describe("Notifications", () => {
         <Notice notice={{type: "success", title: "TITLE", message: "MESSAGE", timeout: 0}} />
       </Notifications>
     );
+    
     let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
     
     await renderer.act(async () => {
       tree[1].props.onClick();
+      await sleep(100);
     });
+
 
     tree = component.toJSON();
     expect(tree).toMatchSnapshot();
     
   });
-  
-  it("The notice type defaults to primary", async () => {
+
+  it("4) The notice type defaults to info", async () => {
     
     const component = renderer.create(
       <Notifications>
@@ -57,10 +73,10 @@ describe("Notifications", () => {
       </Notifications>
     );
     let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
     
     await renderer.act(async () => {
       tree[1].props.onClick();
+      await sleep(100);
     });
 
     tree = component.toJSON();
@@ -68,7 +84,7 @@ describe("Notifications", () => {
     
   });
   
-  it("If the title is ommitted no title is rendered", async () => {
+  it("5) If the title is ommitted no title is rendered", async () => {
     
     const component = renderer.create(
       <Notifications>
@@ -77,10 +93,10 @@ describe("Notifications", () => {
       </Notifications>
     );
     let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-    
+     
     await renderer.act(async () => {
       tree[1].props.onClick();
+      await sleep(100);
     });
 
     tree = component.toJSON();
@@ -88,7 +104,7 @@ describe("Notifications", () => {
     
   });
   
-  it("If no message is given the default message is rendered", async () => {
+  it("6) If no message is given the default message is rendered", async () => {
     
     const component = renderer.create(
       <Notifications>
@@ -97,10 +113,10 @@ describe("Notifications", () => {
       </Notifications>
     );
     let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
     
     await renderer.act(async () => {
       tree[1].props.onClick();
+      await sleep(100);
     });
 
     tree = component.toJSON();
@@ -108,7 +124,7 @@ describe("Notifications", () => {
     
   });
   
-  it("Calling defaultTitleCase with a function changes how titles are formatted", async () => {
+  it("7) Calling defaultTitleCase with a function changes how titles are formatted", async () => {
     
     defaultTitleCase(strings.kebabCase);
     
@@ -119,10 +135,10 @@ describe("Notifications", () => {
       </Notifications>
     );
     let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
     
     await renderer.act(async () => {
       tree[1].props.onClick();
+      await sleep(100);
     });
 
     tree = component.toJSON();
@@ -130,7 +146,7 @@ describe("Notifications", () => {
     
   });
   
-  it("Calling defaultDigest with a function changes how notices are digested", async () => {
+  it("8) Calling defaultDigest with a function changes how notices are digested", async () => {
     
     defaultDigest((notice) => {
       notice.title = "THIS IS A NEW TITLE";
@@ -144,10 +160,10 @@ describe("Notifications", () => {
       </Notifications>
     );
     let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
     
     await renderer.act(async () => {
       tree[1].props.onClick();
+      await sleep(100);
     });
 
     tree = component.toJSON();
@@ -155,7 +171,7 @@ describe("Notifications", () => {
     
   });
   
-  it("Calling defaultAlert with a JSX component changes how notices are rendered", async () => {
+  it("9) Calling defaultAlert with a JSX component changes how notices are rendered", async () => {
     
     const newAlert = ({notice, onClose}) => {
       const className = "alert " + (notice.type ? notice.type.toLowerCase() : "primary");
@@ -176,10 +192,10 @@ describe("Notifications", () => {
       </Notifications>
     );
     let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
     
     await renderer.act(async () => {
       tree[1].props.onClick();
+      await sleep(100);
     });
 
     tree = component.toJSON();
@@ -187,7 +203,7 @@ describe("Notifications", () => {
     
   });
   
-  it("Calling defaultMessage with a string sets the default message", async () => {
+  it("10) Calling defaultMessage with a string sets the default message", async () => {
     
     defaultMessage("CUSTOM DEFAULT MESSAGE");
     
@@ -198,10 +214,10 @@ describe("Notifications", () => {
       </Notifications>
     );
     let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
     
     await renderer.act(async () => {
       tree[1].props.onClick();
+      await sleep(100);
     });
 
     tree = component.toJSON();
@@ -209,7 +225,7 @@ describe("Notifications", () => {
     
   });
   
-  it("Rendering the notifications panel with titleCase as a function changes how titles are formatted", async () => {
+  it("11) Rendering the notifications panel with titleCase as a function changes how titles are formatted", async () => {
     
     const component = renderer.create(
       <Notifications>
@@ -218,10 +234,10 @@ describe("Notifications", () => {
       </Notifications>
     );
     let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
     
     await renderer.act(async () => {
       tree[1].props.onClick();
+      await sleep(100);
     });
 
     tree = component.toJSON();
@@ -229,7 +245,7 @@ describe("Notifications", () => {
     
   });
   
-  it("Rendering the notifications panel with digest as a function changes how notices are digested", async () => {
+  it("12) Rendering the notifications panel with digest as a function changes how notices are digested", async () => {
     
     const digest = (notice) => {
       notice.title = "THIS IS A NEW TITLE";
@@ -243,10 +259,10 @@ describe("Notifications", () => {
       </Notifications>
     );
     let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
     
     await renderer.act(async () => {
       tree[1].props.onClick();
+      await sleep(100);
     });
 
     tree = component.toJSON();
@@ -254,7 +270,7 @@ describe("Notifications", () => {
     
   });
   
-  it("Rendering the notifications panel with alert as a JSX component changes how notices are rendered", async () => {
+  it("13) Rendering the notifications panel with alert as a JSX component changes how notices are rendered", async () => {
         
     const newAlert = ({notice, onClose}) => {
       const className = "alert " + (notice.type ? notice.type.toLowerCase() : "primary");
@@ -273,10 +289,10 @@ describe("Notifications", () => {
       </Notifications>
     );
     let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
     
     await renderer.act(async () => {
       tree[1].props.onClick();
+      await sleep(100);
     });
 
     tree = component.toJSON();
@@ -284,7 +300,7 @@ describe("Notifications", () => {
     
   });
   
-  it("Rendering the notifications panel with defaultMessage as string changes the default message", async () => {
+  it("14) Rendering the notifications panel with defaultMessage as string changes the default message", async () => {
         
     const component = renderer.create(
       <Notifications>
@@ -293,10 +309,10 @@ describe("Notifications", () => {
       </Notifications>
     );
     let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
     
     await renderer.act(async () => {
       tree[1].props.onClick();
+      await sleep(100);
     });
 
     tree = component.toJSON();
@@ -304,19 +320,19 @@ describe("Notifications", () => {
     
   });
 
-  it("Setting timeout times out the alert", async () => {
+  it("15) Setting timeout times out the alert", async () => {
     
     const component = renderer.create(
       <Notifications>
         <Notifications.Panel />
-        <Notice notice={{type: "success", title: "TITLE", message: "MESSAGE", timeout: 1000}} />
+        <Notice notice={{type: "success", title: "TITLE", message: "MESSAGE", timeout: 100}} />
       </Notifications>
     );
     let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
     
     await renderer.act(async () => {
       tree[1].props.onClick();
+      await sleep(200);
     });
 
     tree = component.toJSON();
@@ -324,7 +340,7 @@ describe("Notifications", () => {
     
   });
   
-  it("Clicking close button on the alert closes the alert", async () => {
+  it("16) Clicking close button on the alert closes the alert", async () => {
     
     const component = renderer.create(
       <Notifications>
@@ -333,24 +349,24 @@ describe("Notifications", () => {
       </Notifications>
     );
     let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
     
     await renderer.act(async () => {
       tree[1].props.onClick();
+      await sleep(100);
     });
 
     tree = component.toJSON();
     expect(tree).toMatchSnapshot();
     
     await renderer.act(async () => {
-      tree[0].children[3].props.onClick();
+      tree[0].children[0].children[2].props.onClick();
+      await sleep(100);
     });
 
     tree = component.toJSON();
     expect(tree).toMatchSnapshot();
     
   });
-  
 });
 
 
