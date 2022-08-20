@@ -1,11 +1,3 @@
-![](./library-app/README.md)
-
-
-
-
-
-
-
 # React Notification Context
 
 The React notifications context is a fully configurable notifications context for React web applications.
@@ -53,7 +45,7 @@ const ComponentRaisedNotice = (props) => {
   const notices = useContext(Notifications.Context);
   
   notices.accept({
-    type: "success", 
+    type: "danger", 
     title: "Opps I did it again!", 
     message: "Hit me baby one more time!", 
     timeout: 5000});
@@ -74,12 +66,26 @@ and to submit the notice
 
 ``` jsx
 notices.accept({
-  type: "success", 
+  type: "danger", 
   title: "Opps I did it again!", 
   message: "Hit me baby one more time!", 
   timeout: 5000});
 ```
 </p>
+
+Produces the notice below.
+
+![](./library-app/docs/SampleAlertWithTimeout.png)
+
+The 'X' in the top right corner closed the alert.
+
+The icon in the bottom right is a queued countdown timer showing the number of notices queued to be shown. As time passes the outer ring of the wheel diminishes until the timeout passes 
+when the notice will automatically close and the next notice (if there is another notice on the queue) will show
+
+If the timeout is set to 0 then the notice will not timeout and the queued countdown timer will not be shown.
+
+![](./library-app/docs/SampleAlert.png)
+
 </details>
 <details><summary><h2>Getting Started</h2></summary>
 
@@ -164,7 +170,7 @@ By default the notice data type is
 
 ``` jsx
 const notice = {
-  type : string, // Default 'primary'
+  type : string, // Default 'info'
   title : string, // If ommitted the notice will not have a title
   message : string, // Defaults to the default message 
   timeout : integer // Defaults to 3000ms
@@ -203,7 +209,7 @@ The value returned by the notice digest function is the passed to the alert comp
 
 The default notice digest:
 
-1. Sets the notice type to "primary" if the notice does not define a `type` attribute.
+1. Sets the notice type to "info" if the notice does not define a `type` attribute.
 2. Formatst the notice title using the given `formatTitle` function if the notice defines a `title` attribute.
 3. Sets the message of the notice to the given `defaultMessage` if the notice does not define a `message` attribute.
 
@@ -222,8 +228,8 @@ import {defaultDigest} from 'react-notifications-context';
 
 const myNewNoticeDigest = (notice, formatTitle, defefaultMessage) => {
   if (!notice.type) {
-    notice.type = 'primary';
-  } // Set the notice type to 'primary' if the notice does not have a type attribute
+    notice.type = 'info';
+  } // Set the notice type to 'info' if the notice does not have a type attribute
   notice.title = formatTitle(notice.type); // Set the notice title to the title formatted notice type.
   if (!notice.message) {
     notice.message = "This is the default message : " + defaultMessage;
@@ -245,8 +251,8 @@ import Notifications from 'react-notifications-context';
 
 const myNewNoticeDigest = (notice, formatTitle, defefaultMessage) => {
   if (!notice.type) {
-    notice.type = 'primary';
-  } // Set the notice type to 'primary' if the notice does not have a type attribute
+    notice.type = 'info';
+  } // Set the notice type to 'info' if the notice does not have a type attribute
   notice.title = formatTitle(notice.type); // Set the notice title to the title formatted notice type.
   if (!notice.message) {
     notice.message = "This is the default message : " + defaultMessage;
@@ -385,8 +391,8 @@ The React notifications context privides a function `defaultAlert` to set the de
 import {defaultAlert} from 'react-notifications-context';
 
 // Define an alert component
-const MyAlert = ({notice, onClose, timeout, queued}) => {
-  setTimeout(onClose, timeout);
+const MyAlert = ({notice, onClose, queued}) => {  
+  ...
   return <JSX>
 };
 
@@ -404,11 +410,7 @@ The notice submitted to the `Notifications.Context` after it has been digested
 
 A callback function to close the alert
 
-3. `timeout`
-
-The number of milliseconds that the alert should be shown before calling `onClose`
-
-4. `queued`
+3. `queued`
 
 A function to call to get the number of notices still on the queue
 
