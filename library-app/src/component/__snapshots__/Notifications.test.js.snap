@@ -27,27 +27,7 @@ Array [
           stroke="currentColor"
         />
       </svg>
-      <svg
-        className="queuedCountdownTimer"
-        viewBox="-50 -50 100 100"
-      >
-        <path
-          d="M 0 -44 A 44 44 0 1 1 -7.105427357601002e-15 -44 L -7.105427357601002e-15 -36 A 36 36 0 1 0 0 -36 Z"
-          fill="currentColor"
-          stroke="currentColor"
-        />
-        <text
-          dominantBaseline="central"
-          fill="currentColor"
-          fontSize="60px"
-          stroke="currentColor"
-          textAnchor="middle"
-          x={0}
-          y={0}
-        >
-          0
-        </text>
-      </svg>
+      0
     </div>
   </div>,
   <button
@@ -83,27 +63,7 @@ Array [
           stroke="currentColor"
         />
       </svg>
-      <svg
-        className="queuedCountdownTimer"
-        viewBox="-50 -50 100 100"
-      >
-        <path
-          d="M 0 -44 A 44 44 0 1 1 -7.105427357601002e-15 -44 L -7.105427357601002e-15 -36 A 36 36 0 1 0 0 -36 Z"
-          fill="currentColor"
-          stroke="currentColor"
-        />
-        <text
-          dominantBaseline="central"
-          fill="currentColor"
-          fontSize="60px"
-          stroke="currentColor"
-          textAnchor="middle"
-          x={0}
-          y={0}
-        >
-          0
-        </text>
-      </svg>
+      0
     </div>
   </div>,
   <button
@@ -136,27 +96,7 @@ Array [
           stroke="currentColor"
         />
       </svg>
-      <svg
-        className="queuedCountdownTimer"
-        viewBox="-50 -50 100 100"
-      >
-        <path
-          d="M 0 -44 A 44 44 0 1 1 -7.105427357601002e-15 -44 L -7.105427357601002e-15 -36 A 36 36 0 1 0 0 -36 Z"
-          fill="currentColor"
-          stroke="currentColor"
-        />
-        <text
-          dominantBaseline="central"
-          fill="currentColor"
-          fontSize="60px"
-          stroke="currentColor"
-          textAnchor="middle"
-          x={0}
-          y={0}
-        >
-          0
-        </text>
-      </svg>
+      0
     </div>
   </div>,
   <button
@@ -189,27 +129,7 @@ Array [
           stroke="currentColor"
         />
       </svg>
-      <svg
-        className="queuedCountdownTimer"
-        viewBox="-50 -50 100 100"
-      >
-        <path
-          d="M 0 -44 A 44 44 0 1 1 -7.105427357601002e-15 -44 L -7.105427357601002e-15 -36 A 36 36 0 1 0 0 -36 Z"
-          fill="currentColor"
-          stroke="currentColor"
-        />
-        <text
-          dominantBaseline="central"
-          fill="currentColor"
-          fontSize="60px"
-          stroke="currentColor"
-          textAnchor="middle"
-          x={0}
-          y={0}
-        >
-          0
-        </text>
-      </svg>
+      0
     </div>
   </div>,
   <button
@@ -245,27 +165,7 @@ Array [
           stroke="currentColor"
         />
       </svg>
-      <svg
-        className="queuedCountdownTimer"
-        viewBox="-50 -50 100 100"
-      >
-        <path
-          d="M 0 -44 A 44 44 0 1 1 -7.105427357601002e-15 -44 L -7.105427357601002e-15 -36 A 36 36 0 1 0 0 -36 Z"
-          fill="currentColor"
-          stroke="currentColor"
-        />
-        <text
-          dominantBaseline="central"
-          fill="currentColor"
-          fontSize="60px"
-          stroke="currentColor"
-          textAnchor="middle"
-          x={0}
-          y={0}
-        >
-          0
-        </text>
-      </svg>
+      0
     </div>
   </div>,
   <button
@@ -301,27 +201,7 @@ Array [
           stroke="currentColor"
         />
       </svg>
-      <svg
-        className="queuedCountdownTimer"
-        viewBox="-50 -50 100 100"
-      >
-        <path
-          d="M 0 -44 A 44 44 0 1 1 -7.105427357601002e-15 -44 L -7.105427357601002e-15 -36 A 36 36 0 1 0 0 -36 Z"
-          fill="currentColor"
-          stroke="currentColor"
-        />
-        <text
-          dominantBaseline="central"
-          fill="currentColor"
-          fontSize="60px"
-          stroke="currentColor"
-          textAnchor="middle"
-          x={0}
-          y={0}
-        >
-          0
-        </text>
-      </svg>
+      0
     </div>
   </div>,
   <button
@@ -385,27 +265,7 @@ Array [
           stroke="currentColor"
         />
       </svg>
-      <svg
-        className="queuedCountdownTimer"
-        viewBox="-50 -50 100 100"
-      >
-        <path
-          d="M 0 -44 A 44 44 0 1 1 -7.105427357601002e-15 -44 L -7.105427357601002e-15 -36 A 36 36 0 1 0 0 -36 Z"
-          fill="currentColor"
-          stroke="currentColor"
-        />
-        <text
-          dominantBaseline="central"
-          fill="currentColor"
-          fontSize="60px"
-          stroke="currentColor"
-          textAnchor="middle"
-          x={0}
-          y={0}
-        >
-          0
-        </text>
-      </svg>
+      0
     </div>
   </div>,
   <button
@@ -441,27 +301,7 @@ Array [
           stroke="currentColor"
         />
       </svg>
-      <svg
-        className="queuedCountdownTimer"
-        viewBox="-50 -50 100 100"
-      >
-        <path
-          d="M 0 -44 A 44 44 0 1 1 -7.105427357601002e-15 -44 L -7.105427357601002e-15 -36 A 36 36 0 1 0 0 -36 Z"
-          fill="currentColor"
-          stroke="currentColor"
-        />
-        <text
-          dominantBaseline="central"
-          fill="currentColor"
-          fontSize="60px"
-          stroke="currentColor"
-          textAnchor="middle"
-          x={0}
-          y={0}
-        >
-          0
-        </text>
-      </svg>
+      0
     </div>
   </div>,
   <button
@@ -497,27 +337,7 @@ Array [
           stroke="currentColor"
         />
       </svg>
-      <svg
-        className="queuedCountdownTimer"
-        viewBox="-50 -50 100 100"
-      >
-        <path
-          d="M 0 -44 A 44 44 0 1 1 -7.105427357601002e-15 -44 L -7.105427357601002e-15 -36 A 36 36 0 1 0 0 -36 Z"
-          fill="currentColor"
-          stroke="currentColor"
-        />
-        <text
-          dominantBaseline="central"
-          fill="currentColor"
-          fontSize="60px"
-          stroke="currentColor"
-          textAnchor="middle"
-          x={0}
-          y={0}
-        >
-          0
-        </text>
-      </svg>
+      0
     </div>
   </div>,
   <button
@@ -581,27 +401,7 @@ Array [
           stroke="currentColor"
         />
       </svg>
-      <svg
-        className="queuedCountdownTimer"
-        viewBox="-50 -50 100 100"
-      >
-        <path
-          d="M 0 -44 A 44 44 0 1 1 -7.105427357601002e-15 -44 L -7.105427357601002e-15 -36 A 36 36 0 1 0 0 -36 Z"
-          fill="currentColor"
-          stroke="currentColor"
-        />
-        <text
-          dominantBaseline="central"
-          fill="currentColor"
-          fontSize="60px"
-          stroke="currentColor"
-          textAnchor="middle"
-          x={0}
-          y={0}
-        >
-          0
-        </text>
-      </svg>
+      0
     </div>
   </div>,
   <button
@@ -648,27 +448,7 @@ Array [
           stroke="currentColor"
         />
       </svg>
-      <svg
-        className="queuedCountdownTimer"
-        viewBox="-50 -50 100 100"
-      >
-        <path
-          d="M 0 -44 A 44 44 0 1 1 -7.105427357601002e-15 -44 L -7.105427357601002e-15 -36 A 36 36 0 1 0 0 -36 Z"
-          fill="currentColor"
-          stroke="currentColor"
-        />
-        <text
-          dominantBaseline="central"
-          fill="currentColor"
-          fontSize="60px"
-          stroke="currentColor"
-          textAnchor="middle"
-          x={0}
-          y={0}
-        >
-          0
-        </text>
-      </svg>
+      0
     </div>
   </div>,
   <button

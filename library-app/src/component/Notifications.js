@@ -18,14 +18,8 @@ import {polar2cartesian} from "../utils/geometry/geometry";
  * @param {function} queued - The function to call to idnetify how many notices are still on the queue
  * @return {JSX} THe rendered alert
  */
-const SelfClosingAlert = ({notice, onClose, timeout, queued}) => {
-  
-  // Set the timeout for the alert
-  // - If the notice has a timeout then use that
-  // - Otherwise if the alert was rendered with a time out use that
-  // - Otherwise timeout after 3 seconds
-  timeout = notice.timeout !== undefined ? notice.timeout : timeout ? timeout : 3000;
-  
+const SelfClosingAlert = ({notice, onClose, queued}) => {
+    
   //Set the class name of the alert for styling from the type of the notice accepted
   const className = "k2 alert " + (notice.type ? notice.type.toLowerCase() : "info");
 
@@ -37,7 +31,7 @@ const SelfClosingAlert = ({notice, onClose, timeout, queued}) => {
           {notice.title && <h4>{notice.title}</h4>}
           <p>{notice.message}</p>
           <CloseIcon onClick={onClose}/>
-          {timeout > 0 && <QueuedCountDownTimer timeout={timeout} queued={queued} />}
+          {notice.timeout && notice.timeout > 0 && <QueuedCountDownTimer timeout={notice.timeout} queued={queued} />}
         </div>
       </div>
 };
@@ -336,7 +330,7 @@ const NotificationsPanel = (props) => {
   // - onClose - the callback to close the notice
   // - timeout - The default timeout if the notice does not define the timeout attribute
   // - queues - The function to call to get the number of notices still on the queue
-  if (promiseNotice.notice) return <Alert notice={promiseNotice.notice} onClose={closeNotice} timeout={props.timeout} queued={notices.size}/>;
+  if (promiseNotice.notice) return <Alert notice={promiseNotice.notice} onClose={closeNotice} queued={notices.size}/>;
   // If the is not notice to display render an empty span.
   else return <span />
 };
