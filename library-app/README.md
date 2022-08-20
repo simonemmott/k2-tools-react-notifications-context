@@ -45,7 +45,7 @@ const ComponentRaisedNotice = (props) => {
   const notices = useContext(Notifications.Context);
   
   notices.accept({
-    type: "success", 
+    type: "danger", 
     title: "Opps I did it again!", 
     message: "Hit me baby one more time!", 
     timeout: 5000});
@@ -66,12 +66,18 @@ and to submit the notice
 
 ``` jsx
 notices.accept({
-  type: "success", 
+  type: "danger", 
   title: "Opps I did it again!", 
   message: "Hit me baby one more time!", 
   timeout: 5000});
 ```
 </p>
+
+Produces the notice below.
+
+![](./docs/SampleAlertWithTimeout.png)
+
+
 </details>
 <details><summary><h2>Getting Started</h2></summary>
 
