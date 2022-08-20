@@ -9,7 +9,7 @@ const Notice = () => {
   useEffect(() => {
     if (notify) {
       setNotify(false);
-      notices.accept({type: "danger", title: "Opps I did it again!", message: "Hit me baby one more time!", timeout: 3000});
+      notices.accept({type: "danger", title: "Opps I did it again!", message: "Hit me baby one more time!", timeout: 60000});
     } 
   }, [notify, notices])
   

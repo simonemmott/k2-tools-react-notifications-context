@@ -37,7 +37,7 @@ const SelfClosingAlert = ({notice, onClose, timeout, queued}) => {
           {notice.title && <h4>{notice.title}</h4>}
           <p>{notice.message}</p>
           <CloseIcon onClick={onClose}/>
-          <QueuedCountDownTimer timeout={timeout} queued={queued} />
+          {timeout > 0 && <QueuedCountDownTimer timeout={timeout} queued={queued} />}
         </div>
       </div>
 };
