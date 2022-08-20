@@ -1,0 +1,47 @@
+.k2.alert {
+  position: relative;
+  .inner {
+    margin: 0.2em;
+    padding: 0.5em 3em 0.5em 3em;
+    border: 1px solid;
+    border-radius: 0.2em;
+   }
+  .close {
+    position: absolute;
+    top: 0.75em;
+    right: 0.75em;
+    height: 1em;
+    width: 1em;
+  }
+  .close:hover {
+    cursor: pointer;
+  }
+  .queuedCountdownTimer {
+    position: absolute;
+    bottom: 0.75em;
+    right: 0.75em;
+    width: 1em;
+    height: 1em;
+  }
+}
+
+.k2.alert.success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #3c763d;
+}
+.k2.alert.danger {
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442;
+}
+.k2.alert.warning {
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  color: #8a6d3b;
+}
+.k2.alert.info {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #31708f;
+}
